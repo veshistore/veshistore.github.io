@@ -1,10 +1,4 @@
 plugins:
   - jekyll-seo-tag
 
-collections:
-  portfolio:
-    output: true
-
-logo: /images/logo.svg
-
 title: ""
