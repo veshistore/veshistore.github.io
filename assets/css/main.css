@@ -1142,6 +1142,7 @@
 				
 					#nav  ul.links > li.current {
 						font-weight: 400;
+						text-decoration: underline;
 					}
 				
 					#nav  ul.links > li.sub-cat {
