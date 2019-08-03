@@ -1,8 +1,10 @@
 @charset "UTF-8";
 @import url(font-awesome.min.css);
-@import url('https://fonts.googleapis.com/css?family=Alegreya:400i&display=swap&subset=cyrillic');
+
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400&display=swap&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Alice&display=swap&subset=cyrillic');
+
 @font-face {
 	font-family: 'Helvetica Neue Cyr Roman';
 	src: url('/assets/fonts/HelveticaNeueCyr-Roman.eot');
@@ -132,7 +134,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-weight: 400;
+		font-weight: 300;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
 	}
@@ -1053,6 +1055,20 @@
 		font-weight: 300;
 	}
 	
+		.product img {
+			max-height: 80vh;
+			max-width: 100%;
+			width: auto !important;
+		}
+		
+		@media screen and (max-width: 980px) {
+			
+			.product img {
+				width: 100% !important;
+				max-height: none;
+			}
+		}
+	
 	@media screen and (max-width: 780px) {
 		
 		.product {
@@ -1076,6 +1092,16 @@
 			grid-template-columns: 1fr;
 		}
 		
+	}
+	
+	@media screen and (max-width: 480px) {
+		
+		.photos img {
+			position: relative;
+			width: 100vw !important;
+			left: 50%;
+			margin-left: -50vw;
+		}
 	}
 
 /* Wrapper (main) */
@@ -1131,6 +1157,10 @@
 
 	#header + #wrapper + #footer > .inner {
 		margin: 0 auto;
+	}
+
+	.logo {
+		font-family: 'Alice', serif;
 	}
 
 /* Header */
@@ -1215,8 +1245,8 @@
 	}
 		
 		#nav .logo {
-			font-size: 200%;
-			line-height: 3em;
+			font-size: 300%;
+			line-height: 2em;
 			text-decoration: underline;
 		}
 		
@@ -1343,6 +1373,7 @@
 				
 				#nav {
 					width: 80%;
+					padding-top: 4em;
 				}
 				
 					#nav .close {
