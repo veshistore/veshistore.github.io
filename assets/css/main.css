@@ -5,15 +5,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400&display=swap&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=Alice&display=swap&subset=cyrillic');
 
-@font-face {
-	font-family: 'Helvetica Neue Cyr Roman';
-	src: url('/assets/fonts/HelveticaNeueCyr-Roman.eot');
-	src: url('/assets/fonts/HelveticaNeueCyr-Roman.eot?#iefix') format('embedded-opentype'),
-	url('/assets/fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
-	url('/assets/fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
 
 /* Reset */
 
@@ -83,7 +74,7 @@
 	}
 
 	body {
-		background: #f3f3f3;
+		background: #efefee;
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -1005,7 +996,7 @@
 			bottom: 0;
 			right: 0;
 			padding: 20px;
-			color: #f3f3f3;
+			color: #efefee;
 			transition: all .2s ease-in-out;
 			opacity: 0;
 			background: linear-gradient(180deg, rgba(0,0,0,0.6), transparent 50%);
@@ -1094,7 +1085,7 @@
 	.photos {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-gap: 2em;
+		grid-gap: 1em;
 		font-weight: 300;
 	}
 	
@@ -1122,6 +1113,7 @@
 		margin: 0 18em;
 		margin-right: 10%;
 		padding-top: 6em;
+		min-height: 100vh;
 	}
 
 		@media screen and (max-width: 980px) {
@@ -1186,7 +1178,7 @@
 		header.mobile {
 			position: fixed;
 			top:0;
-			background: #f3f3f3;
+			background: #efefee;
 			height: 4em;
 			line-height: 4em;
 			z-index: 10001;
@@ -1253,7 +1245,7 @@
 		align-items: center;
 		justify-content: space-between;
 		text-align:center;
-		background: #f3f3f3;
+		background: #efefee;
 	}
 		
 		#nav .logo {
@@ -1280,7 +1272,6 @@
 				
 					#nav  ul.links > li.current {
 						font-weight: 400;
-						text-decoration: underline;
 					}
 				
 					#nav  ul.links > li.sub-cat {
@@ -1297,10 +1288,25 @@
 						line-height: 2em;
 						-webkit-transition: all 0.6s ease-in-out;
 						transition: all 0.6s ease-in-out;
+						position: relative;
+						overflow: hidden;
 					}
 					
-						#nav  ul.links > li > a:hover {
-							text-decoration: underline;
+						#nav  ul.links > li > a::after {
+							position: absolute;
+							content:'';
+							width: 50%;
+							height: 1px;
+							bottom: 0;
+							left: -50%;
+							background: #424244;
+							transition: all 0.2s ease-in-out;
+							opacity: 0.7;
+						}
+					
+						#nav  ul.links > li > a:hover::after {
+							/* text-decoration: underline; */
+							left: 0;
 						}
 						
 					@media screen and (max-width: 480px) {
@@ -1452,7 +1458,7 @@
 
 	#footer {
 		padding: 4em 0 2em 0;
-		background: #f3f3f3;
+		background: #efefee;
 		text-align: right;
 		font-size: 0.9em;
 	}
