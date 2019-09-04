@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+	{% include head.html %}
+	<body>
+		<!-- Header -->
+		{% include header.html %}
+		<!-- Nav -->
+		{% include nav.html %}
+		{% assign all_products = site.catalog | where: "type", "product" %}
+		{% assign url_list = page.url | split: '/' %}
+		{% assign category_name = url_list | last %}
+		{% assign current_category_products = all_products | where_exp: "item", "item.url contains category_name" %}
+		<!-- Main -->
+		<div id="wrapper">
+			<article>
+				<div class="container">
+					<header class="main-header">
+						<h1>{{page.page-title}} <sup>({{current_category_products|size}})</sup></h1>
+					</header>
+					<section class="items">
+					{% for product in current_category_products %}
+						{% assign url_list = product.url | split: '/' %}
+						{% assign product_name = url_list | last %}
+						<div class="item">
+							<a href="{{product.url}}">
+								<img class="image fit" src="/images/catalog/{{category_name}}/{{product_name}}-small.jpg" />
+								<div class="caption">
+									<h2>{{product.product-title}}</h2>
+									<p>{{product.product-price}} &#8381;</p>
+								</div>
+							</a>
+						</div>
+						
+					{% endfor %}
+					</section>
+					{{content}}
+				</div>
+			</article>
+		</div>
+			
+
+		<!-- Footer -->
+		{% include footer.html %}
+		<!-- Scripts -->
+		{% include scripts.html %}
+
+	</body>
+</html>
