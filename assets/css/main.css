@@ -1155,6 +1155,14 @@
 			background: #efefee;
 			opacity: 0.5;
 		}
+		
+		@media screen and (max-width: 980px) {
+			
+			#banner {
+				margin: 0;
+			}
+			
+		}
 	
 /* Footer */
 
