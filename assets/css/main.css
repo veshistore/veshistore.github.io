@@ -1111,7 +1111,7 @@
 
 /* Wrapper (main) */
 
-	#nav + #wrapper {
+	#wrapper {
 		margin: 0 18em;
 		margin-right: 10%;
 		padding-top: 6em;
@@ -1120,7 +1120,7 @@
 
 		@media screen and (max-width: 980px) {
 
-			#nav + #wrapper {
+			#wrapper {
 				margin: 0;
 				padding-top: 4em;
 			}
@@ -1129,9 +1129,32 @@
 
 		
 
-	#nav + #wrapper > .wrapper > .inner {
+	#wrapper > .wrapper > .inner {
 		margin: 0 auto;
 	}
+	
+/* Banner */
+
+	#banner {
+		position: relative;
+		height: 100vh;
+		margin-left: 18em;
+		background-image: url("/images/banner.jpg");
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+	}
+	
+		#banner::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: #efefee;
+			opacity: 0.5;
+		}
 	
 /* Footer */
 

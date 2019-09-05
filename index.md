@@ -1,7 +1,7 @@
 ---
 title: Вещи - магазин дизайнерской мебели и аксуссуаров
 description: 
-layout: generic
+layout: index
 permalink: /
 
 page-title: Загаловок
