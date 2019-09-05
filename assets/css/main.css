@@ -1158,14 +1158,14 @@
 	
 /* Footer */
 
-	#nav + #wrapper + #footer {
+	#footer {
 		margin-left: 18em;
 		margin-right: 10%;
 	}
 
 		@media screen and (max-width: 980px) {
 
-			#nav + #wrapper + #footer {
+			#footer {
 				margin: 0;
 			}
 
@@ -1184,7 +1184,7 @@
 		color: rgba(255, 255, 255, 0.15);
 	}
 
-	#header + #wrapper + #footer > .inner {
+	#footer > .inner {
 		margin: 0 auto;
 	}
 
