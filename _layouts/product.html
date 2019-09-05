@@ -19,12 +19,13 @@
 		<div id="wrapper">
 			<article>
 				<div class="container">
-					<header class="main-header">
-						<h1>{{page.product-title}}</h1>
-					</header>
+					
 					<section class="product">
 						<img class="image fit" src="/images/catalog/{{url_list[1]}}/{{product_name}}-01.jpg" />
 						<div>
+							<header class="main-header">
+								<h1>{{page.product-title}}</h1>
+							</header>
 							<p>{{page.product-description}}</p>
 							{% if page.features %}
 							<ul>

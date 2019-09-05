@@ -475,6 +475,7 @@
 		border: 0;
 		display: inline-block;
 		position: relative;
+		border-radius: 3px;
 	}
 
 		.image img {
@@ -1000,6 +1001,7 @@
 			transition: all .2s ease-in-out;
 			opacity: 0;
 			background: linear-gradient(180deg, rgba(0,0,0,0.6), transparent 50%);
+			border-radius: 3px;
 		}
 		
 			.item:hover .caption {
@@ -1047,7 +1049,7 @@
 	}
 	
 		.product img {
-			max-height: 80vh;
+			max-height: 90vh;
 			max-width: 100%;
 			width: auto !important;
 		}
@@ -1510,3 +1512,20 @@
 				}
 
 		}
+
+/* Google map */
+	#map {
+		height:500px;
+		width:auto;
+		border-radius: 3px;
+	}
+	.gm-style-iw * {
+		display: block;
+	}
+	.gm-style-iw h4, .gm-style-iw p {
+		margin: 0 0 0.5em 0;
+		padding: 0;
+	}
+	.gm-style-iw a {
+		color: #100e11;
+	}
