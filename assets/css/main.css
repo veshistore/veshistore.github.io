@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400&display=swap&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400&display=swap&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=Alice&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Lora|Noto+Sans|Noto+Serif&display=swap');
 
 
 /* Reset */
@@ -1414,9 +1415,9 @@
 					height: 4em;
 				}
 				
-				#nav .logo {
-					display: none;
-				}
+				/* #nav .logo { */
+					/* display: none; */
+				/* } */
 
 			}
 			
@@ -1424,11 +1425,15 @@
 				
 				#nav {
 					width: 80%;
-					padding-top: 4em;
+					padding-top: 2em;
 				}
 				
 					#nav .close {
 						top: 0;
+					}
+					
+					#nav .logo {
+						font-size: 200%;
 					}
 			}
 

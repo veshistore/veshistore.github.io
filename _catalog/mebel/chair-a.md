@@ -8,7 +8,7 @@ type: product
 weight: 1
 
 product-title: Дизайнерский стул Chair-a
-product-description: "Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique."
+product-description: "Дизайнерский полотенцесушитель из медных труб. Мы обязательно когда-нибудь придумаем крутое описание для этой модели, но сейчас совсем не до того. Посмотрите пока на картинки, всё и так понятно. А если не понятно, позвоните нам и мы всё расскажем. Или напишите, если не любите звонить."
 
 product-price: "124 600"
 
