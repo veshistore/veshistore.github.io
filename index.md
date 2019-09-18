@@ -4,5 +4,5 @@ description:
 layout: index
 permalink: /
 
-page-title: Загаловок
+page-title: Заголовок
 ---

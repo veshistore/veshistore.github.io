@@ -1157,17 +1157,27 @@
 			left: 0;
 			height: 100%;
 			width: 100%;
-			background: rgba(239, 239, 238, 0.6);
+			background: rgba(109, 109, 108, 0.6);
+		}
+		
+		#banner + #wrapper {
+			padding-top: 2em;
 		}
 		
 		#banner .inner {
 			z-index: 2;
 		}
 		
+			#banner .inner h1 {
+				font-size: 4em;
+				color: #efefee;
+			}
+		
 		@media screen and (max-width: 980px) {
 			
 			#banner {
 				margin: 0;
+				padding-top: 5em;
 			}
 			
 		}
