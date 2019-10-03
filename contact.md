@@ -10,14 +10,17 @@ type: category
 page-title: Контакты
 
 ---
-<ul class="alt">
-	<li><i class="fa fa-phone">&nbsp;</i><a href="tel:+7(495)123-45-67"><span itemprop="telephone">+7&nbsp;(495)&nbsp;123-45-67</span></a></li>
-	<li><i class="fa fa-whatsapp">&nbsp;</i><a href="https://wa.me/74951234567"><span>Написать в WhatsApp</span></a></li>
-	<li><i class="fa fa-envelope-o">&nbsp;</i><a href="mailto:info@veshi.ru"><span itemprop="email">info@veshi.ru</span></a></li>
-	<li><div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><i class="fa fa-map-marker">&nbsp;</i><span itemprop="postalCode">111222</span> г. <span itemprop="addressLocality">Москва</span>, <span itemprop="streetAddress">ул. Ленина, д. 5</span></div></li>
-	<li><i class="fa fa-clock-o">&nbsp;</i><data itemprop="openingHours" value="Mo-Fri 10:00−20:00"> Пн-Пт, 10:00-19:00.</data></li>
-</ul>
-<div id='map'></div>
+<section class="product">
+	<div id='map'></div>
+	<ul class="alt">
+		<li><i class="fa fa-phone">&nbsp;</i><a href="tel:+7(495)006-00-98"><span itemprop="telephone">+7&nbsp;(495)&nbsp;006-00-98</span></a></li>
+		<li><i class="fa fa-whatsapp">&nbsp;</i><a href="https://wa.me/79030060099"><span>Написать в WhatsApp</span></a></li>
+		<li><i class="fa fa-envelope-o">&nbsp;</i><a href="mailto:info@veshi.pro"><span itemprop="email">info@veshi.pro</span></a></li>
+		<li><div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><i class="fa fa-map-marker">&nbsp;</i><span itemprop="postalCode">117105</span> г. <span itemprop="addressLocality">Москва</span>, <span itemprop="streetAddress">Варшавское шоссе, д. 35, стр. 1, БЦ "Ривер плаза"</span></div></li>
+		<li><i class="fa fa-clock-o">&nbsp;</i><data itemprop="openingHours" value="Mo-Fri 10:00−20:00"> Пн-Пт, 10:00-19:00.</data></li>
+	</ul>
+	
+</section>
 <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDhVVXo6YEQbJaryZPqmx8g_SqMln8x8jY&extension=.js'></script> 
  
 <script> 
@@ -25,8 +28,8 @@ page-title: Контакты
 	var map;
 	function init() {
 		var mapOptions = {
-			center: new google.maps.LatLng(55.477585,-322.682634),
-			zoom: 10,
+			center: new google.maps.LatLng(55.690770,37.626253),
+			zoom: 15,
 			zoomControl: true,
 			zoomControlOptions: {
 				style: google.maps.ZoomControlStyle.LARGE,
@@ -51,7 +54,7 @@ page-title: Контакты
 		var mapElement = document.getElementById('map');
 		var map = new google.maps.Map(mapElement, mapOptions);
 		var locations = [
-['А510', 'г. Москва, г. Троицк, ул. Физическая, д. 13', '+7(495)123-45-67', 'info@a510.ru', 'a510.ru', 55.464401, 37.29058599999996, '/images/solid-pin-black.png']
+['Вещи', 'г. Москва, Варшавское шоссе, д. 35, стр. 1, БЦ "Ривер плаза"', '+7(495)006-00-98', 'info@veshi.pro', 'veshi.pro', 55.690770, 37.626253, '/images/solid-pin-black.png']
 		];
 		for (i = 0; i < locations.length; i++) {
 			if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}
