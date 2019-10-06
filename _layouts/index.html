@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="ru">
 	{% include head.html %}
-	<body>
+	<body class="is-loading">
 		<!-- Header -->
 		{% include header.html %}
 		<!-- Nav -->
@@ -14,10 +14,10 @@
 		<!-- </div> -->
 		<div id="wrapper">
 			<article>
-			{% assign all_products = site.catalog | where: "type", "product" %}
+			{% assign all_products = site.catalog | where: "type", "product" | sort: "weight" %}
 				<section class="container">
 					<header class="main-header">
-						<h1>Магазин дизайнерских предметов интерьера и мебели ручной работы</h1>
+						<h1>Интерьер ручной работы</h1>
 					</header>
 					<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
 				</section>
@@ -39,6 +39,7 @@
 						</div>
 						
 					{% endfor %}
+					
 					</div>
 				</section>
 				<hr />

@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css?family=Alice&display=swap&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=Literata:400,500,600,700&display=swap&subset=cyrillic');
 
 
@@ -125,6 +124,7 @@
 
 	p {
 		margin: 0 0 2em 0;
+		max-width: 65em;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -478,7 +478,7 @@
 		border: 0;
 		display: inline-block;
 		position: relative;
-		border-radius: 3px;
+		border-radius: 5px;
 	}
 
 		.image img {
@@ -980,8 +980,6 @@
 		
 	.item {
 		position: relative;
-		background: #000;
-		
 	}
 	
 	.item.big {
@@ -1004,7 +1002,7 @@
 			transition: all .2s ease-in-out;
 			opacity: 0;
 			background: linear-gradient(180deg, rgba(0,0,0,0.6), transparent 50%);
-			border-radius: 3px;
+			border-radius: 5px;
 		}
 		
 			.item:hover .caption {
@@ -1223,9 +1221,6 @@
 		margin: 0 auto;
 	}
 
-	.logo {
-		font-family: 'Alice', serif;
-	}
 
 /* Header */
 		
@@ -1525,12 +1520,12 @@
 		font-size: 0.9em;
 	}
 	
-		@media screen and (max-width: 980px) {
+		/* @media screen and (max-width: 980px) { */
 			
-			#footer {
-				text-align: center;
-			}
-		}
+			/* #footer { */
+				/* text-align: center; */
+			/* } */
+		/* } */
 	
 		#footer h2{
 			text-decoration: underline;
