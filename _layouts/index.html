@@ -14,19 +14,21 @@
 		<!-- </div> -->
 		<div id="wrapper">
 			<article>
-			{% assign all_products = site.catalog | where: "type", "product" | sort: "weight" %}
+			{% assign new_products = site.catalog | where: "type", "product" | where: "new", "1" | sort: "weight" %}
+			{% assign featured_products = site.catalog | where: "type", "product" | where: "featured", "1" | sort: "weight" %}
 				<section class="container">
 					<header class="main-header">
 						<h1>Интерьер ручной работы</h1>
 					</header>
 					<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
 				</section>
+				{% if new_products[0] %}
 				<section class="container">
 					<header>
 						<h2>Новинки:</h2>
 					</header>
 					<div class="items">
-						{% for product in all_products %}
+						{% for product in new_products %}
 						
 						<div class="item">
 							<a href="{{product.url}}">
@@ -42,13 +44,15 @@
 					
 					</div>
 				</section>
+				{% endif %}
+				{% if featured_products[0] %}
 				<hr />
 				<section class="container">
 					<header>
 						<h2>Популярные:</h2>
 					</header>
 					<div class="items">
-						{% for product in all_products %}
+						{% for product in featured_products %}
 						
 						<div class="item">
 							<a href="{{product.url}}">
@@ -63,6 +67,7 @@
 					{% endfor %}
 					</div>
 				</section>
+				{% endif %}
 			</article>
 		</div>
 			

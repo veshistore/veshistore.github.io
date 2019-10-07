@@ -5,7 +5,7 @@ description: Description
 layout: product
 permalink: /:path
 type: product
-weight: 1
+weight: 3
 
 new: 1
 

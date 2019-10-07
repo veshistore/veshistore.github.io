@@ -1332,6 +1332,12 @@
 						#nav  ul.links > li.current > a::after{
 							left:0;
 						}
+						
+						@media screen and (max-width: 480px) {
+							#nav  ul.links > li.current > a::after{
+								left:25%;
+							}
+						}
 				
 					#nav  ul.links > li.sub-cat {
 						padding-left: 1.5em;
@@ -1376,6 +1382,14 @@
 						
 						#nav  ul.links > li.sub-cat {
 							padding-left: 0;
+						}
+						
+						#nav  ul.links > li.current > a::after{
+							left:25%;
+						}
+						
+						#nav  ul.links > li > a:hover::after {
+							left: 25%;
 						}
 					}
 
