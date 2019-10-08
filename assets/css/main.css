@@ -1041,6 +1041,10 @@
 				opacity: 1;
 			}
 			
+			.item.big:hover .caption {
+				opacity: 0.5;
+			}
+			
 			.item .caption h2{
 				font-size: 1.25em;
 				margin-bottom: 0.5em;
