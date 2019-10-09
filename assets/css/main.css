@@ -1271,7 +1271,7 @@
 		header.mobile {
 			position: fixed;
 			top:0;
-			/* background: #efefec; */
+			background: #efefec;
 			height: 4em;
 			line-height: 4em;
 			z-index: 10001;
