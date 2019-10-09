@@ -1271,7 +1271,7 @@
 		header.mobile {
 			position: fixed;
 			top:0;
-			background: #efefec;
+			/* background: #efefec; */
 			height: 4em;
 			line-height: 4em;
 			z-index: 10001;
@@ -1338,7 +1338,7 @@
 		align-items: center;
 		justify-content: space-between;
 		text-align:center;
-		background: #efefec;
+		/* background: #efefec; */
 	}
 		
 		#nav .logo {
@@ -1567,7 +1567,7 @@
 
 	#footer {
 		padding: 4em 0 2em 0;
-		background: #efefec;
+		/* background: #efefec; */
 		text-align: right;
 		font-size: 0.9em;
 	}
