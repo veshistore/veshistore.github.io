@@ -1550,6 +1550,10 @@
 		font-size: 2em;
 	}
 	
+		.main-header.index {
+			font-size: 2.75em;
+		}
+	
 	@media screen and (max-width: 980px) {
 			
 		.main-header {
@@ -1561,6 +1565,9 @@
 				font-size: 0.8em;
 			}
 		
+		.main-header.index {
+			margin-top: 2em;
+		}
 	}
 
 /* Footer */
