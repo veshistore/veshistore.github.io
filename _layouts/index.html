@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="ru">
 	{% include head.html %}
 	<body class="is-loading">
@@ -6,12 +6,9 @@
 		{% include header.html %}
 		<!-- Nav -->
 		{% include nav.html %}
+		{% include cart.html %}
 		<!-- Main -->
-		<!-- <div id="banner"> -->
-			<!-- <div class="inner"> -->
-				<!-- <h1>Мебель и предметы интерьера ручной работы</h1> -->
-			<!-- </div> -->
-		<!-- </div> -->
+		
 		<div id="wrapper">
 			<article>
 			{% assign new_products = site.catalog | where: "type", "product" | where: "new", "1" | sort: "weight" %}

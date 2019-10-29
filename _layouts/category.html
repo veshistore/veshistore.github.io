@@ -6,6 +6,7 @@
 		{% include header.html %}
 		<!-- Nav -->
 		{% include nav.html %}
+		{% include cart.html %}
 		{% assign all_products = site.catalog | where: "type", "product" %}
 		{% assign url_list = page.url | split: '/' %}
 		{% assign category_name = url_list | last %}

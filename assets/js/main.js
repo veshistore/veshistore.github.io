@@ -15,32 +15,45 @@
 
 	
 	// Disable animations/transitions until everything's loaded.
-		body.classList.add('is-loading');
+		// body.classList.add('is-loading');
 
 		window.addEventListener('load', function() {
 			body.classList.remove('is-loading');
 		});
 
-	// Nav.
+	// Nav&Cart.
 		var	nav = document.querySelector('#nav'),
 			navToggle = document.querySelector('a[href="#nav"]'),
-			navClose = document.querySelector('#nav .close');;
+			navClose = document.querySelector('#nav .close'),
+			cart = document.querySelector('#cart'),
+			cartToggle= document.querySelector('a[href="#cart"]'),
+			cartToggle2= document.querySelector('a[href="#cart2"]'),
+			cartClose = document.querySelector('#cart .close');
 			
 		// Hide function
 			var hideNav=function(){
 				nav.classList.remove('visible');
 				body.classList.remove('menu-visible');
 			};
+
+			var hideCart=function(){
+				cart.classList.remove('visible');
+				body.classList.remove('menu-visible');
+			};
 			
 
 		// Event: Prevent clicks/taps inside the nav from bubbling.
-			// addEventsListener(nav, 'click touchend', function(event) {
-				// event.stopPropagation();
-			// });
+			addEventsListener(nav, 'click touchend', function(event) {
+				event.stopPropagation();
+			});
+			addEventsListener(cart, 'click touchend', function(event) {
+				event.stopPropagation();
+			});
 
 		// Event: Hide nav on body click/tap.
 			addEventsListener(body, 'click touchend', function(event) {
 				hideNav();
+				hideCart();
 			});
 
 		// Toggle.
@@ -56,15 +69,37 @@
 
 				});
 
+			// Event: Toggle cart on click.
+				cartToggle.addEventListener('click', function(event) {
+
+					event.preventDefault();
+					event.stopPropagation();
+
+					cart.classList.toggle('visible');
+					body.classList.toggle('menu-visible');
+
+				});
+
+				cartToggle2.addEventListener('click', function(event) {
+
+					event.preventDefault();
+					event.stopPropagation();
+
+					cart.classList.toggle('visible');
+					body.classList.toggle('menu-visible');
+
+				});
+
 		// Close.
 
 			
 			// Event: Hide on ESC.
 				window.addEventListener('keydown', function(event) {
 
-					if (event.keyCode == 27)
+					if (event.keyCode == 27) {
 						hideNav();
-
+						hideCart();
+					}
 				});
 
 			// Event: Hide nav on click.
@@ -76,9 +111,19 @@
 					hideNav();
 
 				});
-	
-	//Transition animation
-		$('body').on('click', 'a', function(event) {
+
+			// Event: Hide cart on click.
+				cartClose.addEventListener('click', function(event) {
+
+					event.preventDefault();
+					event.stopPropagation();
+
+					hideCart();
+
+				});
+		
+	//Close nav on 'a' click and transition body	
+		$('nav').on('click', 'a', function(event) {
 			var $a = $(this),
 				href = $a.attr('href'),
 				target = $a.attr('target');
@@ -87,6 +132,32 @@
 		// Cancel original event.
 			event.preventDefault();
 			event.stopPropagation();
+			
+			hideNav();
+			body.classList.add('trans');
+			window.setTimeout(function() {
+
+				if (target == '_blank')
+					window.open(href);
+				else
+					window.location.href = href;
+
+			}, 250);
+		});
+
+
+	//Transition animation
+		$('body').on('click', 'a', function(event) {
+			
+			var $a = $(this),
+				href = $a.attr('href'),
+				target = $a.attr('target');
+			if (href.indexOf('#') != -1 || href.indexOf('tel') != -1 || href.indexOf('wa.me') != -1 || href.indexOf('mailto') != -1 || target == '_blank')
+				return;
+		// Cancel original event.
+			event.preventDefault();
+			event.stopPropagation();
+			
 			body.classList.add('trans');
 			window.setTimeout(function() {
 
@@ -98,4 +169,17 @@
 			}, 250);
 		});
 	
+	/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+		/* var prevScrollpos = window.pageYOffset;
+		window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		if (prevScrollpos > currentScrollPos) {
+			document.getElementById("navbar").style.top = "0";
+		} else {
+			document.getElementById("navbar").style.top = "-4em";
+		}
+		prevScrollpos = currentScrollPos;
+		} */
+
+
 })(jQuery);
