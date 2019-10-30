@@ -20,7 +20,7 @@
 	// Disable animations/transitions until everything's loaded.
 		// body.classList.add('is-loading');
 
-		window.addEventListener('load', function() {
+		window.addEventListener('DOMContentLoaded', function() {
 			body.classList.remove('is-loading');
 		});
 
@@ -31,9 +31,9 @@
 			cart = document.querySelector('#cart'),
 			cartToggle= document.querySelector('a[href="#cart"]'),
 			cartToggle2= document.querySelector('a[href="#cart2"]'),
-			cartClose = document.querySelector('#cart .close'),
-			cartwrapper = document.querySelector('.cart-cart'),
-			formwrapper = document.querySelector('.form-wrapper');
+			cartClose = document.querySelector('#cart .close');
+			// cartwrapper = document.querySelector('.cart-cart'),
+			// formwrapper = document.querySelector('.form-wrapper');
 			
 		// Hide function
 			var hideNav=function(){
@@ -184,7 +184,7 @@
 				event.preventDefault();
 				event.stopPropagation();
 				$('.cart-cart').hide();
-				$('.form-wrapper').fadeIn(200);
+				$('.form-wrapper').fadeIn("500");
 			});
 		});
 
@@ -199,9 +199,8 @@
 				// var myString = "&cart=" + JSON.stringify(localStorage.getItem('shoppingCart'));
 				
 				// formdata += myString;
-				shoppingCart.clearCart();
-				displayCart();
 				
+				console.log(form.serialize());
 				$.ajax({
 					dataType: "jsonp",
 					url: "https://script.google.com/macros/s/AKfycbzsBxQ_0rkFBSPUoWywnvdjUfyippHomxBDDRHV2hpTmWIrYNc/exec",
@@ -209,6 +208,8 @@
 						}).done(function(data) {
 							$(".form-loading").hide();
 							$(".form-succes").fadeIn("200");
+							shoppingCart.clearCart();
+							displayCart();
 							/* yaCounter21957292.reachGoal('order');
 							ga('send', 'event', 'form', 'order');
 							fbq('track', 'Lead'); */

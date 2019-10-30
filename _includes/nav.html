@@ -1,14 +1,14 @@
 <nav id="nav">
 	<a href="/" class="logo">Вещи</a>
 	<ul class="links">
-		<li{% if page.url contains "/catalog/" %} class="current"{% endif %}><a href="/catalog/">Все товары /</a></li>
-		<li class="sub-cat {% if page.url contains "/tekstil/" %}current{% endif %}"><a href="/tekstil/">Текстиль</a></li>
-		<li class="sub-cat {% if page.url contains "/keramika/" %}current{% endif %}"><a href="/keramika/">Керамика</a></li>
-		<li class="sub-cat {% if page.url contains "/veshi/" %}current{% endif %}"><a href="/veshi/">Вещи</a></li>
-		<li class="sub-cat {% if page.url contains "/svet/" %}current{% endif %}"><a href="/svet/">Свет</a></li>
-		<li class="sub-cat {% if page.url contains "/mebel/" %}current{% endif %}"><a href="/mebel/">Мебель</a></li>
-		<li class="gap {% if page.url contains "/stories/" %}current{% endif %}"><a href="/stories/">Истории</a></li>
-		<li{% if page.url contains "/dostavka" %} class="current"{% endif %}><a href="/dostavka">Доставка</a></li>
+		<li{% if page.url contains '/catalog/' %} class="current"{% endif %}><a href="/catalog/">Все товары /</a></li>
+		<li class="sub-cat {% if page.url contains '/tekstil/" %}current{% endif %}"><a href="/tekstil/">Текстиль</a></li>
+		<li class="sub-cat {% if page.url contains '/keramika/" %}current{% endif %}"><a href="/keramika/">Керамика</a></li>
+		<li class="sub-cat {% if page.url contains '/veshi/" %}current{% endif %}"><a href="/veshi/">Вещи</a></li>
+		<li class="sub-cat {% if page.url contains '/svet/" %}current{% endif %}"><a href="/svet/">Свет</a></li>
+		<li class="sub-cat {% if page.url contains '/mebel/" %}current{% endif %}"><a href="/mebel/">Мебель</a></li>
+		<!-- <li class="gap {% if page.url contains "/stories/" %}current{% endif %}"><a href="/stories/">Истории</a></li> -->
+		<li class="gap{%if page.url contains '/dostavka' %} current{% endif %}"><a href="/dostavka">Доставка</a></li>
 		<li{% if page.url contains "/contact" %} class="current"{% endif %}><a href="/contact">Контакты</a></li>
 	</ul>
 	<div>

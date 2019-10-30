@@ -178,8 +178,9 @@ var shoppingCart = (function() {
         + '<div><a class="minus-item button" data-url=' + cartArray[i].url + '>-</a><span>'+ cartArray[i].count + '</span><a class="plus-item button" data-url=' + cartArray[i].url + '>+</a></div>'
         + '<a href="#" class="delete-item" data-url=' + cartArray[i].url + '>Удалить</a>'
         + '</div></div>';
-        cartString+=cartArray[i].name + ',' + cartArray[i].price + ',' + cartArray[i].count + ';';
+        cartString+=cartArray[i].url + ',' + cartArray[i].price + ',' + cartArray[i].count + ';';
     }
+    cartString+=shoppingCart.totalCart();
     $('.show-cart').fadeOut(200);
     window.setTimeout(function() {
       $('.show-cart').html(output);
