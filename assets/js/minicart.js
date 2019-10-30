@@ -181,10 +181,10 @@ var shoppingCart = (function() {
         + '<a href="' + cartArray[i].url +'">'
         + '<img class="image" src="/images/catalog' + cartArray[i].url + '-small.jpg">'
         + '</a>'
-        + '<div class="align-left cart-text">'
+        + '<div class="cart-text">'
         + '<a href="' + cartArray[i].url +'">' + cartArray[i].name + '</a>'
-        + '<p><b>' + numberWithSpaces(cartArray[i].price) + ' &#8381;</b></p>'
-        + '<p><a class="minus-item button" data-url=' + cartArray[i].url + '> - </a>'+ cartArray[i].count + ' <a class="plus-item button" data-url=' + cartArray[i].url + '> + </a></p>'
+        + '<h3>' + numberWithSpaces(cartArray[i].price) + ' &#8381;</h3>'
+        + '<div><a class="minus-item button" data-url=' + cartArray[i].url + '>-</a><span>'+ cartArray[i].count + '</span><a class="plus-item button" data-url=' + cartArray[i].url + '>+</a></div>'
         + '<a href="#" class="delete-item" data-url=' + cartArray[i].url + '>Удалить</a>'
         + '</div></div>';
     }
