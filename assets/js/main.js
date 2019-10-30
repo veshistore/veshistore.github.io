@@ -2,6 +2,9 @@
 
 	"use strict";
 
+	
+	
+	
 	// Methods/polyfills.
 
 		// addEventsListener
@@ -28,7 +31,9 @@
 			cart = document.querySelector('#cart'),
 			cartToggle= document.querySelector('a[href="#cart"]'),
 			cartToggle2= document.querySelector('a[href="#cart2"]'),
-			cartClose = document.querySelector('#cart .close');
+			cartClose = document.querySelector('#cart .close'),
+			cartwrapper = document.querySelector('.cart-cart'),
+			formwrapper = document.querySelector('.form-wrapper');
 			
 		// Hide function
 			var hideNav=function(){
@@ -39,6 +44,8 @@
 			var hideCart=function(){
 				cart.classList.remove('visible');
 				body.classList.remove('menu-visible');
+				/* cartwrapper.classList.remove('hide');
+				formwrapper.classList.toggle('hide'); */
 			};
 			
 
@@ -167,6 +174,49 @@
 					window.location.href = href;
 
 			}, 250);
+		});
+
+		//Order button - hide cart and show form
+		$(document).ready(function(){
+			var btn = document.getElementsByClassName('order');
+			var thisBtn = btn[0];
+			thisBtn.addEventListener("click", function(event){
+				event.preventDefault();
+				event.stopPropagation();
+				$('.cart-cart').hide();
+				$('.form-wrapper').fadeIn(200);
+			});
+		});
+
+		//Form submission
+		$(document).ready(function(){
+			$('.ajax-form').submit(function(event) {
+				event.preventDefault();
+				var form = $(this);
+				$(".ajax-form").hide();
+				$(".form-loading").fadeIn("200");
+				// var formdata = form.serialize();
+				// var myString = "&cart=" + JSON.stringify(localStorage.getItem('shoppingCart'));
+				
+				// formdata += myString;
+				shoppingCart.clearCart();
+				displayCart();
+				
+				$.ajax({
+					dataType: "jsonp",
+					url: "https://script.google.com/macros/s/AKfycbzsBxQ_0rkFBSPUoWywnvdjUfyippHomxBDDRHV2hpTmWIrYNc/exec",
+					data: form.serialize()
+						}).done(function(data) {
+							$(".form-loading").hide();
+							$(".form-succes").fadeIn("200");
+							/* yaCounter21957292.reachGoal('order');
+							ga('send', 'event', 'form', 'order');
+							fbq('track', 'Lead'); */
+						}).fail(function(data) {
+							$(".form-loading").hide();
+							$(".form-error").fadeIn("200");
+						});
+			  });
 		});
 	
 	/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */

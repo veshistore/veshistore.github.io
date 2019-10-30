@@ -165,18 +165,9 @@ var shoppingCart = (function() {
   
   function displayCart() {
     var cartArray = shoppingCart.listCart();
+    var cartString = "";
     var output = "";
     for(var i in cartArray) {
-     /*  output += "<tr>"
-        + "<td>" + cartArray[i].name + "</td>" 
-        + "<td>(" + cartArray[i].price + ")</td>"
-        + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
-        + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
-        + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
-        + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
-        + " = " 
-        + "<td>" + cartArray[i].total + "</td>" 
-        +  "</tr>"; */
         output+='<div class="cart-item">'
         + '<a href="' + cartArray[i].url +'">'
         + '<img class="image" src="/images/catalog' + cartArray[i].url + '-small.jpg">'
@@ -187,11 +178,13 @@ var shoppingCart = (function() {
         + '<div><a class="minus-item button" data-url=' + cartArray[i].url + '>-</a><span>'+ cartArray[i].count + '</span><a class="plus-item button" data-url=' + cartArray[i].url + '>+</a></div>'
         + '<a href="#" class="delete-item" data-url=' + cartArray[i].url + '>Удалить</a>'
         + '</div></div>';
+        cartString+=cartArray[i].name + ',' + cartArray[i].price + ',' + cartArray[i].count + ';';
     }
     $('.show-cart').fadeOut(200);
     window.setTimeout(function() {
       $('.show-cart').html(output);
-    }, 200);  
+    }, 200);
+    $('.cart-string').attr('value', cartString);
     $('.show-cart').fadeIn(200);
     $('.total-cart').html(numberWithSpaces(shoppingCart.totalCart()));
     $('.total-count').html(shoppingCart.totalCount());
