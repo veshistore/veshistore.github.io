@@ -9,8 +9,8 @@ var shoppingCart = (function() {
     cart = [];
     
     // Constructor
-    function Item(name, price, count, url) {
-      this.name = name;
+    function Item(product, price, count, url) {
+      this.product = product;
       this.price = price;
       this.count = count;
       this.url = url;
@@ -36,7 +36,7 @@ var shoppingCart = (function() {
     var obj = {};
     
     // Add to cart
-    obj.addItemToCart = function(url, price, count, name) {
+    obj.addItemToCart = function(url, price, count, product) {
       for(var item in cart) {
         if(cart[item].url === url) {
           cart[item].count ++;
@@ -44,7 +44,7 @@ var shoppingCart = (function() {
           return;
         }
       }
-      var item = new Item(name, price, count, url);
+      var item = new Item(product, price, count, url);
       cart.push(item);
       saveCart();
     }
@@ -149,10 +149,10 @@ var shoppingCart = (function() {
   $('.add-to-cart').click(function(event) {
     event.preventDefault();
     event.stopPropagation();
-    var name = $(this).data('name');
+    var product = $(this).data('name');
     var price = Number($(this).data('price'));
     var url = $(this).data('url');
-    shoppingCart.addItemToCart(url, price, 1, name);
+    shoppingCart.addItemToCart(url, price, 1, product);
     displayCart();
   });
   
@@ -165,22 +165,23 @@ var shoppingCart = (function() {
   
   function displayCart() {
     var cartArray = shoppingCart.listCart();
-    var cartString = "";
+    var cartString = shoppingCart.totalCart();
     var output = "";
+    
     for(var i in cartArray) {
         output+='<div class="cart-item">'
         + '<a href="' + cartArray[i].url +'">'
         + '<img class="image" src="/images/catalog' + cartArray[i].url + '-small.jpg">'
         + '</a>'
         + '<div class="cart-text">'
-        + '<a href="' + cartArray[i].url +'">' + cartArray[i].name + '</a>'
+        + '<a href="' + cartArray[i].url +'">' + cartArray[i].product + '</a>'
         + '<h3>' + numberWithSpaces(cartArray[i].price) + ' &#8381;</h3>'
         + '<div><a class="minus-item button" data-url=' + cartArray[i].url + '>-</a><span>'+ cartArray[i].count + '</span><a class="plus-item button" data-url=' + cartArray[i].url + '>+</a></div>'
         + '<a href="#" class="delete-item" data-url=' + cartArray[i].url + '>Удалить</a>'
         + '</div></div>';
-        cartString+=cartArray[i].url + ',' + cartArray[i].price + ',' + cartArray[i].count + ';';
+        //cartString+=cartArray[i].url + ',' + cartArray[i].price + ',' + cartArray[i].count + ';';
     }
-    cartString+=shoppingCart.totalCart();
+    
     $('.show-cart').fadeOut(200);
     window.setTimeout(function() {
       $('.show-cart').html(output);
@@ -189,6 +190,9 @@ var shoppingCart = (function() {
     $('.show-cart').fadeIn(200);
     $('.total-cart').html(numberWithSpaces(shoppingCart.totalCart()));
     $('.total-count').html(shoppingCart.totalCount());
+    if (shoppingCart.totalCount()>0 && $('.order').hasClass('disabled')) {
+      $('.order').removeClass('disabled');
+    }
   }
   
   // Delete item button

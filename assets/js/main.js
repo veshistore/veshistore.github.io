@@ -180,11 +180,16 @@
 		$(document).ready(function(){
 			var btn = document.getElementsByClassName('order');
 			var thisBtn = btn[0];
+
+			thisBtn.classList.contains("disabled")
+			
 			thisBtn.addEventListener("click", function(event){
 				event.preventDefault();
 				event.stopPropagation();
-				$('.cart-cart').hide();
-				$('.form-wrapper').fadeIn("500");
+				if (!this.classList.contains("disabled")) {
+					$('.cart-cart').hide();
+					$('.form-wrapper').fadeIn("500");
+				};
 			});
 		});
 
@@ -195,16 +200,22 @@
 				var form = $(this);
 				$(".ajax-form").hide();
 				$(".form-loading").fadeIn("200");
-				// var formdata = form.serialize();
-				// var myString = "&cart=" + JSON.stringify(localStorage.getItem('shoppingCart'));
+				var formdata = form.serialize();
+				var myString = "";
+				var myCart = JSON.parse(localStorage.getItem('shoppingCart'));
+
+				for (var item in myCart) {
+					myString += "&" + $.param(myCart[item]);
+				}
 				
-				// formdata += myString;
 				
-				console.log(form.serialize());
+				formdata += myString;
+				console.log(formdata);
+				
 				$.ajax({
 					dataType: "jsonp",
 					url: "https://script.google.com/macros/s/AKfycbzsBxQ_0rkFBSPUoWywnvdjUfyippHomxBDDRHV2hpTmWIrYNc/exec",
-					data: form.serialize()
+					data: formdata
 						}).done(function(data) {
 							$(".form-loading").hide();
 							$(".form-succes").fadeIn("200");
