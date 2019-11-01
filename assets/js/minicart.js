@@ -152,6 +152,9 @@ var shoppingCart = (function() {
     var product = $(this).data('name');
     var price = Number($(this).data('price'));
     var url = $(this).data('url');
+    //if (shoppingCart.totalCount()==0) {
+      $('#cart').toggleClass('visible')
+    //}
     shoppingCart.addItemToCart(url, price, 1, product);
     displayCart();
   });
@@ -192,6 +195,8 @@ var shoppingCart = (function() {
     $('.total-count').html(shoppingCart.totalCount());
     if (shoppingCart.totalCount()>0 && $('.order').hasClass('disabled')) {
       $('.order').removeClass('disabled');
+    } else if (shoppingCart.totalCount()==0 && !$('.order').hasClass('disabled')) {
+      $('.order').addClass('disabled');
     }
   }
   

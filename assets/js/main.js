@@ -181,8 +181,6 @@
 			var btn = document.getElementsByClassName('order');
 			var thisBtn = btn[0];
 
-			thisBtn.classList.contains("disabled")
-			
 			thisBtn.addEventListener("click", function(event){
 				event.preventDefault();
 				event.stopPropagation();
@@ -190,6 +188,19 @@
 					$('.cart-cart').hide();
 					$('.form-wrapper').fadeIn("500");
 				};
+			});
+		});
+
+		//Return to cart from order
+		$(document).ready(function(){
+			var btn = document.getElementsByClassName('return-to-cart');
+			var thisBtn = btn[0];
+
+			thisBtn.addEventListener("click", function(event){
+				event.preventDefault();
+				event.stopPropagation();
+				$('.form-wrapper').hide();
+				$('.cart-cart').fadeIn("500");
 			});
 		});
 

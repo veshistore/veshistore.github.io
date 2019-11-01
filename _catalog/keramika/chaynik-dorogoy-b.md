@@ -10,7 +10,7 @@ weight: 2
 featured: 1
 
 product-title: Очень крутой чайник №2
-product-description: "Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique."
+product-description: " Удобная конструкция заварочного чайника и великолепный вкус чая, который получался при заваривании,  покорил всех, и он стал непременным атрибутом чайной церемонии. Заварочный чайник с самого начала изготавливали из красной глины, которая и по сей день считается идеальным материалом."
 
 product-price: "14 780"
 
