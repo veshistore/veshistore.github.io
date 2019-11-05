@@ -8,11 +8,10 @@ collections:
 social:
   name: Veshi
   links:
-    - https://www.facebook.com/a510ru
-    - http://instagram.com/a510ru
-    - https://plus.google.com/111533556890655071026
+    - https://www.facebook.com/
+    - http://instagram.com/
 
-logo: /images/logo2.svg
+logo: /images/logo.svg
 url:
 
 title: ""
@@ -24,4 +23,3 @@ defaults:
       path: ""
     values:
       image: /images/logo.jpg
-theme: jekyll-theme-cayman
