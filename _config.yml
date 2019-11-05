@@ -23,4 +23,4 @@ defaults:
     scope:
       path: ""
     values:
-      image: /images/banners/dupleksy.jpg
+      image: /images/logo.jpg
