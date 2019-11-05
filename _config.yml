@@ -24,3 +24,4 @@ defaults:
       path: ""
     values:
       image: /images/logo.jpg
+theme: jekyll-theme-cayman
