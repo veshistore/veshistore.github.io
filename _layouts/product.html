@@ -14,8 +14,10 @@
 		{% assign url_list = page.url | split: "/" %}
 		{% assign product_name = url_list | last %}
 		{% for file in site.static_files %}
-			{% if file.path contains product_name %}
-				{% assign img_array = img_array | push: file.path %}
+			{% if file.path contains page.url %}
+				{% unless file.path contains "_" %}
+					{% assign img_array = img_array | push: file.path %}
+				{%endunless%}
 			{% endif %}
 		{% endfor %}
 		<div id="wrapper">
@@ -23,7 +25,7 @@
 				<div class="container">
 					
 					<section class="product">
-						<img class="image fit" src="/images/catalog/{{url_list[1]}}/{{product_name}}-01.jpg" />
+						<img class="image fit" src="/images/catalog{{page.url}}-01_1600w.jpg" alt="{{page.product-title}}-фото-1" title="{{page.product-title}}-фото-1" srcset="/images/catalog{{page.url}}-01_1600w.jpg 1600w, /images/catalog{{page.url}}-01_1400w.jpg 1400w, /images/catalog{{page.url}}-01_1000w.jpg 1000w, /images/catalog{{page.url}}-01_800w.jpg 800w, /images/catalog{{page.url}}-01_600w.jpg 600w, /images/catalog{{page.url}}-01_400w.jpg 400w" sizes="(max-width: 780px) 100vw, (max-width: 980px) 45vw, 40vw"/>
 						<div>
 							<header class="main-header">
 								<h1>{{page.product-title}}</h1>
@@ -46,14 +48,12 @@
 							</footer>
 						</div>
 					</section>
-					{% if img_array.size > 2 %}
+					{% if img_array.size > 1 %}
 					<h2 style="margin-top: 2em;font-weight: 300;">Фотографии:</h2>
 					<section class="photos">
 						{% for img in img_array %}
-							{% unless img contains "small" %}
 							{% unless img contains "01" %}
-								<img class="image fit" src="{{img}}" alt="{{page.product-title}}-{{forloop.index}}"></img>
-							{% endunless %}
+								<img class="image fit" loading="lazy" src="{{img | remove: '.jpg'}}_1600w.jpg" alt="{{page.product-title}}-фото-{{forloop.index}}" title="{{page.product-title}}-фото-{{forloop.index}}" srcset="{{img | remove: '.jpg'}}_1600w.jpg 1600w, {{img | remove: '.jpg'}}_1400w.jpg 1400w, {{img | remove: '.jpg'}}_1000w.jpg 1000w, {{img | remove: '.jpg'}}_800w.jpg 800w, {{img | remove: '.jpg'}}_600w.jpg 600w, {{img | remove: '.jpg'}}_400w.jpg 400w" sizes="(max-width: 780px) 100vw, (max-width: 980px) 45vw, 40vw"/>
 							{% endunless %}
 						{% endfor %}
 					</section>
@@ -66,7 +66,7 @@
 						{% if product.url contains related_product %}
 						<div class="item">
 							<a href="{{product.url}}">
-								<img class="image fit" src="/images/catalog/{{product.url}}-small.jpg" />
+								<img class="image fit" loading="lazy" src="/images/catalog{{product.url}}-01_400w.jpg" alt="{{product.product-title}}-фото-1" title="{{product.product-title}}-фото-1" srcset="/images/catalog{{product.url}}-01_1600w.jpg 1600w, /images/catalog{{product.url}}-01_1400w.jpg 1400w, /images/catalog{{product.url}}-01_1000w.jpg 1000w, /images/catalog{{product.url}}-01_800w.jpg 800w, /images/catalog{{product.url}}-01_600w.jpg 600w, /images/catalog{{product.url}}-01_400w.jpg 400w" sizes="(max-width: 660px) 100vw, (max-width: 980px) 45vw, (max-width: 1080px) 80vw, (max-width: 1450px) 40vw, (max-width: 1820px) 26vw, 16vw"/>
 								<div class="caption">
 									<h2>{{product.product-title}}</h2>
 									<p>{{product.product-price}} &#8381;</p>

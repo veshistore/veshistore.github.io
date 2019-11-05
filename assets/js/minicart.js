@@ -174,7 +174,7 @@ var shoppingCart = (function() {
     for(var i in cartArray) {
         output+='<div class="cart-item">'
         + '<a href="' + cartArray[i].url +'">'
-        + '<img class="image" src="/images/catalog' + cartArray[i].url + '-small.jpg">'
+        + '<img class="image" src="/images/catalog' + cartArray[i].url + '-01_400w.jpg">'
         + '</a>'
         + '<div class="cart-text">'
         + '<a href="' + cartArray[i].url +'">' + cartArray[i].product + '</a>'
