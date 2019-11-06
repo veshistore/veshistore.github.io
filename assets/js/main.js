@@ -194,14 +194,15 @@
 		//Return to cart from order
 		$(document).ready(function(){
 			var btn = document.getElementsByClassName('return-to-cart');
-			var thisBtn = btn[0];
-
-			thisBtn.addEventListener("click", function(event){
-				event.preventDefault();
-				event.stopPropagation();
-				$('.form-wrapper').hide();
-				$('.cart-cart').fadeIn("500");
-			});
+			var thisBtn;
+			for (thisBtn of btn) {
+				thisBtn.addEventListener("click", function(event){
+					event.preventDefault();
+					event.stopPropagation();
+					$('.form-wrapper').hide();
+					$('.cart-cart').fadeIn("500");
+				});
+			}
 		});
 
 		//Form submission
@@ -221,8 +222,7 @@
 				
 				
 				formdata += myString;
-				console.log(formdata);
-				
+								
 				$.ajax({
 					dataType: "jsonp",
 					url: "https://script.google.com/macros/s/AKfycbzsBxQ_0rkFBSPUoWywnvdjUfyippHomxBDDRHV2hpTmWIrYNc/exec",
