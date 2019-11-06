@@ -1096,6 +1096,14 @@
 		grid-gap: 2em;
 	}
 	
+		.product h2 {
+			text-align: center;
+		}
+
+		.product ul.actions {
+			text-align: center;
+		}
+	
 		.product > img {
 			max-height: 85vh;
 			max-width: 100%;

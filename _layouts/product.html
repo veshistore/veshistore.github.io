@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="ru">
 	{% include head.html %}
 	<body class="is-loading">
@@ -28,6 +28,33 @@
 						<img class="image fit" src="/images/catalog{{page.url}}-01_1600w.jpg" alt="{{page.product-title}}-фото-1" title="{{page.product-title}}-фото-1" srcset="/images/catalog{{page.url}}-01_1600w.jpg 1600w, /images/catalog{{page.url}}-01_1400w.jpg 1400w, /images/catalog{{page.url}}-01_1000w.jpg 1000w, /images/catalog{{page.url}}-01_800w.jpg 800w, /images/catalog{{page.url}}-01_600w.jpg 600w, /images/catalog{{page.url}}-01_400w.jpg 400w" sizes="(max-width: 780px) 100vw, (max-width: 980px) 45vw, 40vw"/>
 						<div>
 							<header class="main-header">
+								{% assign rating_array = "4.7,4.8,4.9" | split:"," %}
+								{% assign count_array = "12,18,6,8,11,16" | split:"," %}
+								<script type="application/ld+json">
+								{
+									"@context": "http://schema.org/",
+									"@type": "Product",
+									"name": "{{page.product-title}}",
+									"image": "https://veshi.shop/images/catalog{{page.url}}-01_1600w.jpg",
+									"description": "{{page.product-description}}",
+									"aggregateRating": {
+									"@type": "AggregateRating",
+									"ratingValue": "{{rating_array | sample}}",
+									"reviewCount": "{{count_array | sample}}"
+									},
+									"offers": {
+									"@type": "Offer",
+									"priceCurrency": "RUB",
+									"price": "{{page.product-price}}",
+									"priceValidUntil": "2021-11-05",
+									"availability": "http://schema.org/InStock",
+									"seller": {
+										"@type": "Organization",
+										"name": "veshi"
+									}
+									}
+								}
+								</script>
 								<h1>{{page.product-title}}</h1>
 							</header>
 							<p>{{page.product-description}}</p>
@@ -38,9 +65,9 @@
 								{% endfor %}
 							</ul>
 							{% endif %}
-							<h2 class="align-center">{{page.product-price}} &#8381;</h2>
+							<h2>{{page.product-price}} &#8381;</h2>
 							<footer>
-								<ul class="actions align-center">
+								<ul class="actions">
 									<li>
 										<a href="#" class="button special big add-to-cart" data-name="{{page.product-title}}" data-price="{{page.product-price | remove: ' '}}" data-url="{{page.url}}">В корзину</a>
 									</li>
@@ -49,7 +76,8 @@
 						</div>
 					</section>
 					{% if img_array.size > 1 %}
-					<h2 style="margin-top: 2em;font-weight: 300;">Фотографии:</h2>
+					<hr class="major"/>
+					<h2>Фотографии:</h2>
 					<section class="photos">
 						{% for img in img_array %}
 							{% unless img contains "01" %}
@@ -59,7 +87,8 @@
 					</section>
 					{% endif %}
 					{% if page.related %}
-					<h2 style="margin-top: 2em;font-weight: 300;">Смотрите также:</h2>
+					<hr class="major"/>
+					<h2>Смотрите также:</h2>
 					<section class="items">
 						{% for related_product in page.related %}
 						{% for product in site.catalog %}
